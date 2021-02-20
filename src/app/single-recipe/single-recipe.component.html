@@ -1,3 +1,54 @@
-<div class="container" style="margin-top: 55px;">
-    {{singleRecipeData | json}}
+<div class="container single-recipe-main-container" style="margin-top: 55px;">
+   
+    <div class="row single-recipe-main-row">
+        <div class="col-lg-6">
+            <img src={{singleRecipeData[0].image}} alt="momo" class="main-image">
+        </div>
+        <div class="col-lg-6 for-instructions" style="margin-top:20px;">
+            <h3> {{singleRecipeData[0].label}}</h3>
+            <a href={{singleRecipeData[0].url}} class="btn" target="_blank" style="text-decoration: none;">Instructions</a>
+        </div>
+    </div>
+
+    <div class="row single-recipe-secondary-row">
+        <div class="col-lg-6">
+            <h3>Ingredients</h3><hr>
+            <div class="card" style="width: 18rem; margin-bottom:20px;" *ngFor="let ingredient of singleRecipeData[0].ingredients">
+                <img class="card-img-top" src={{ingredient.image}} alt={{ingredient.text}} />
+                <div class="card-body">
+                  <p class="card-text">{{ingredient.text}}</p>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-6">
+            <h3>Nutrients</h3>
+            <hr>Calories/Serving: {{singleRecipeData[0].calories | number: '1.0-0'}}<hr>
+            <div class="row" *ngFor="let nutrients of singleRecipeData[0].digest">
+                <div class="col-lg-6 col-xs-6">
+                    {{nutrients.label}}
+                </div>
+                <div class="col-lg-6 col-xs-6">
+                    {{nutrients.total | number : '1.0-0'}}g
+                </div>
+            </div>
+            <br><br>
+            <hr><h3>HealthLabels</h3><hr>
+            <div class="row" *ngFor="let healthlabels of singleRecipeData[0].healthLabels">
+                <div class="col-lg-12">
+                    <p>{{healthlabels}}</p>
+                </div>
+                
+            </div>
+
+            <br><br>
+            <hr><h3>Cautions</h3><hr>
+            <div class="row" *ngFor="let cautions of singleRecipeData[0].cautions">
+                <div class="col-lg-12">
+                    <p>{{cautions}}</p>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
 </div>
