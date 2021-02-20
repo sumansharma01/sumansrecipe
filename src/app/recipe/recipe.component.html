@@ -1,0 +1,19 @@
+<div class="container recipe-multiple-cards-main-div" style="margin-top: 55px">
+  <!-- {{recipeData.hits | json}} -->
+  <ng-container *ngIf="recipeData">
+    <div class="row">
+      <div class="col" *ngFor="let recipe of recipeData.hits">
+        <div class="card recipe-multiple-cards" style="width: 18rem">
+          <img class="card-img-top" src={{recipe.recipe.image}} alt=""/>
+          <div class="card-body">
+            <h5 class="card-title">{{recipe.recipe.label}}</h5>
+            <button class="btn" (click)="findRecipeById(recipe.recipe.uri)">More info</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+
+
