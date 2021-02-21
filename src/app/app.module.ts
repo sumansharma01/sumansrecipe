@@ -25,7 +25,8 @@ import { SingleRecipeComponent } from './single-recipe/single-recipe.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
     
   ],
   providers: [],
